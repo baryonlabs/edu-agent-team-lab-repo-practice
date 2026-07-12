@@ -117,15 +117,15 @@ git commit -m "step N: ..."
 
 ## 단계 흐름
 
-| 단계 | 목표 | 프롬프트 | 완료 커밋 |
-|---|---|---|---|
-| 1 | 저장소 골격 만들기 | `prompts/01-repo-skeleton.md` | `step 1: create repo skeleton` |
-| 2 | 사용자 업무 목표와 컨텍스트 정리 | `prompts/02-context-pack.md` | `step 2: add business context pack` |
-| 3 | 반복 업무 절차 Skill 작성 | `prompts/03-skill-pattern.md` | `step 3: add response skill` |
-| 4 | 단일 Agent 구현 | `prompts/04-agent-build.md` | `step 4: implement agent draft` |
-| 5 | 승인 큐 구현 | `prompts/05-approval-queue.md` | `step 5: add approval queue backend` |
-| 5-2 | 추가 요청 폼 | `prompts/05-2-request-form.md` | `step 5-2: add request intake form` |
-| 6 | Conductor와 브리핑 | `prompts/06-conductor-logging.md` | `step 6: add conductor briefing loop` |
+| 단계 | 목표 | 화면 | 프롬프트 | 완료 커밋 |
+|---|---|---|---|---|
+| 1 | 저장소 골격 만들기 | <img src="docs/assets/step-terminal-workflow.png" width="120" alt="터미널 예시" /> | `prompts/01-repo-skeleton.md` | `step 1: create repo skeleton` |
+| 2 | 사용자 업무 목표와 컨텍스트 정리 | <img src="docs/assets/step-terminal-workflow.png" width="120" alt="터미널 예시" /> | `prompts/02-context-pack.md` | `step 2: add business context pack` |
+| 3 | 반복 업무 절차 Skill 작성 | <img src="docs/assets/step-terminal-workflow.png" width="120" alt="터미널 예시" /> | `prompts/03-skill-pattern.md` | `step 3: add response skill` |
+| 4 | 단일 Agent 구현 | <img src="docs/assets/step-terminal-workflow.png" width="120" alt="터미널 예시" /> | `prompts/04-agent-build.md` | `step 4: implement agent draft` |
+| 5 | 승인 큐 구현 | <img src="docs/assets/step-streamlit-approval.png" width="120" alt="Streamlit 예시" /> | `prompts/05-approval-queue.md` | `step 5: add approval queue backend` |
+| 5-2 | 추가 요청 폼 | <img src="docs/assets/step-streamlit-approval.png" width="120" alt="Streamlit 예시" /> | `prompts/05-2-request-form.md` | `step 5-2: add request intake form` |
+| 6 | Conductor와 브리핑 | <img src="docs/assets/step-conductor-briefing.png" width="120" alt="터미널 예시" /> | `prompts/06-conductor-logging.md` | `step 6: add conductor briefing loop` |
 
 ## 실행
 
@@ -177,3 +177,5 @@ Step 5-2의 요청 폼은 이 구조를 더 앞단까지 확장합니다. 사용
 - 사용자 목표 1건이 초안으로 생성되고 승인 큐에 남는다.
 - Conductor가 승인 대기 건수와 최근 실행 로그를 브리핑한다.
 - 각 단계가 Git commit으로 분리되어 있다.
+
+이 흐름을 끝까지 따라가면, 스킬을 이용한 업무 자동화의 시작점을 잡게 되고, 이후의 모든 업무도 같은 방식으로 구조적으로 정리해 나갈 수 있습니다.
