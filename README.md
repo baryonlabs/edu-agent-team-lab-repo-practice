@@ -127,6 +127,16 @@ git commit -m "step N: ..."
 | 5-2 | 추가 요청 폼 | <img src="docs/assets/step-streamlit-approval.png" width="120" alt="Streamlit 예시" /> | `prompts/05-2-request-form.md` | `step 5-2: add request intake form` |
 | 6 | Conductor와 브리핑 | <img src="docs/assets/step-conductor-briefing.png" width="120" alt="터미널 예시" /> | `prompts/06-conductor-logging.md` | `step 6: add conductor briefing loop` |
 
+## 이미지 미리보기
+
+아래 이미지는 단계별 화면을 바로 눈에 띄게 보여주는 예시입니다.
+
+<p>
+  <img src="docs/assets/step-terminal-workflow.png" width="31%" alt="터미널 예시" />
+  <img src="docs/assets/step-streamlit-approval.png" width="31%" alt="Streamlit 예시" />
+  <img src="docs/assets/step-conductor-briefing.png" width="31%" alt="운영 브리핑 예시" />
+</p>
+
 ## 실행
 
 ```bash
