@@ -35,10 +35,30 @@ python conductor/daily_briefing.py
 streamlit run approval_queue/app.py
 ```
 
+처음부터 다시 검수하려면 생성된 SQLite 파일을 지우고 실행합니다.
+
+```bash
+rm -f data/agent_team_lab.db
+python backend/seed_order.py
+python agents/tarot_agent.py
+python conductor/daily_briefing.py
+```
+
+## 코드 설명
+
+슬라이드의 단계별 설명과 실제 코드는 [docs/STAGE_GUIDE.md](docs/STAGE_GUIDE.md)에 1:1로 정리되어 있습니다.
+
+- `prompts/`: 단계별로 Claude Code에 넣는 프롬프트
+- `context/`와 `CLAUDE.md`: Agent가 참고하는 사업 기준
+- `skills/tarot-response.md`: 반복 업무 절차
+- `backend/`: SQLite 스키마와 연결 함수
+- `agents/tarot_agent.py`: 주문을 초안으로 바꾸는 단일 Agent
+- `approval_queue/app.py`: 사람이 승인/반려하는 화면
+- `conductor/daily_briefing.py`: 운영 상태 브리핑
+
 ## 검수 기준
 
 - `CLAUDE.md`, `context/`, `skills/`, `agents/`, `backend/`, `approval_queue/`, `conductor/`가 모두 존재한다.
 - 타로 주문 1건이 초안으로 생성되고 승인 큐에 남는다.
 - Conductor가 승인 대기 건수와 최근 실행 로그를 브리핑한다.
 - 각 단계가 Git commit으로 분리되어 있다.
-
