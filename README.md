@@ -74,9 +74,9 @@ docs/STAGE_GUIDE.md의 해당 단계 확인 명령을 실행해라.
 
 목표:
 - git log --oneline --reverse의 첫 번째 step 커밋을 Step 1로 간주한다.
-- 커밋 순서대로 Step 1부터 Step 6까지 실습을 안내한다.
+- 커밋 순서대로 Step 1부터 Step 6까지, 그리고 Step 5-2를 포함해 실습을 안내한다.
 - 한 번에 모든 단계를 진행하지 않는다.
-- 현재 단계의 코드, 프롬프트, 확인 명령, 커밋 메시지만 설명한다.
+- 현재 단계의 코드, 프롬프트, 확인 명령, 커밋 메시지만 설명한다. Step 5-2는 Step 5와 Step 6 사이의 중간 단계로 다룬다.
 
 먼저 실행할 것:
 1. README.md를 읽어 전체 실습 목표를 파악한다.
@@ -121,9 +121,10 @@ git commit -m "step N: ..."
 |---|---|---|---|
 | 1 | 저장소 골격 만들기 | `prompts/01-repo-skeleton.md` | `step 1: create repo skeleton` |
 | 2 | 사용자 업무 목표와 컨텍스트 정리 | `prompts/02-context-pack.md` | `step 2: add business context pack` |
-| 3 | 반복 업무 절차 Skill 작성 | `prompts/03-skill-pattern.md` | `step 3: add tarot response skill` |
-| 4 | 단일 Agent 구현 | `prompts/04-agent-build.md` | `step 4: implement tarot draft agent` |
+| 3 | 반복 업무 절차 Skill 작성 | `prompts/03-skill-pattern.md` | `step 3: add response skill` |
+| 4 | 단일 Agent 구현 | `prompts/04-agent-build.md` | `step 4: implement agent draft` |
 | 5 | 승인 큐 구현 | `prompts/05-approval-queue.md` | `step 5: add approval queue backend` |
+| 5-2 | 추가 요청 폼 | `prompts/05-2-request-form.md` | `step 5-2: add request intake form` |
 | 6 | Conductor와 브리핑 | `prompts/06-conductor-logging.md` | `step 6: add conductor briefing loop` |
 
 ## 실행
@@ -159,6 +160,16 @@ python conductor/daily_briefing.py
 - `agents/task_agent.py`: 입력 목표를 초안으로 바꾸는 단일 Agent 예시
 - `approval_queue/app.py`: 사람이 승인/반려하는 화면
 - `conductor/daily_briefing.py`: 운영 상태 브리핑
+
+## 왜 3, 4, 5 단계가 중요한가
+
+3, 4, 5 단계는 매번 긴 프롬프트로 일회용 코드를 다시 만들지 않게 해 주는 구간입니다. Step 3에서 반복 절차를 Skill로 고정하고, Step 4에서 그 절차를 실행하는 단일 Agent를 만들고, Step 5에서 승인 큐로 발신 전 검수를 묶으면 같은 일을 다시 할 때 필요한 토큰이 줄어듭니다.
+
+Step 5-2의 요청 폼은 이 구조를 더 앞단까지 확장합니다. 사용자가 목표와 제약을 먼저 적어 두면, 뒤 단계는 그 입력을 다시 해석하는 비용 없이 바로 실행할 수 있습니다.
+
+이 절감은 두 갈래로 일어납니다. 첫째, 반복 프롬프트를 Skill/Agent/검색/자료저장으로 바꾸면 자료를 매번 다시 쓰지 않아도 됩니다. 둘째, 업무별로 모델을 나누면 기획처럼 복잡한 일은 고성능 모델로, 자료 정리나 검증처럼 가벼운 일은 작은 모델로 처리할 수 있어 호출 비용이 줄어듭니다.
+
+![3-4-5 단계가 토큰을 줄이는 구조](docs/assets/step345-token-saving.svg)
 
 ## 검수 기준
 

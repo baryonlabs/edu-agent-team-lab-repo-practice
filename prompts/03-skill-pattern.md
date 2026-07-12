@@ -23,5 +23,5 @@
 
 ```bash
 git add .
-git commit -m "step 3: add tarot response skill"
+git commit -m "step 3: add response skill"
 ```

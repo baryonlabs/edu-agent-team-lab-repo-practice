@@ -1,15 +1,16 @@
-create table if not exists orders (
+create table if not exists intake_requests (
   id integer primary key autoincrement,
-  customer_name text not null,
-  question text not null,
-  cards text not null,
+  title text not null,
+  goal text not null,
+  context text not null,
+  constraints text not null,
   status text not null default 'new',
   created_at text not null default current_timestamp
 );
 
 create table if not exists drafts (
   id integer primary key autoincrement,
-  order_id integer not null references orders(id),
+  request_id integer not null references intake_requests(id),
   body text not null,
   status text not null default 'pending',
   created_at text not null default current_timestamp
@@ -29,4 +30,3 @@ create table if not exists run_logs (
   detail text not null,
   created_at text not null default current_timestamp
 );
-
