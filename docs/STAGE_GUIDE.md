@@ -1,6 +1,7 @@
 # Stage Guide
 
 이 문서는 슬라이드의 실습 단계와 실제 코드가 1:1로 맞도록 정리한 운영 가이드입니다.
+기본 예제는 타로 상담 흐름이지만, 실제 실습의 목표는 사용자가 추가로 입력한 업무 목표를 수행하는 범용 에이전트를 조립하는 방법을 익히는 것입니다.
 
 GitHub 공개 링크: https://github.com/baryonlabs/edu-agent-team-lab-repo-practice
 
@@ -48,8 +49,8 @@ docs/STAGE_GUIDE.md의 해당 단계 확인 명령을 실행해라.
 |---|---|---|
 | 프롬프트 | `prompts/*.md` | 각 단계에서 Claude Code에 넣을 작업 지시 |
 | 컨텍스트 | `CLAUDE.md`, `context/*.md` | Agent가 따라야 할 사업 기준과 문체 |
-| Skill | `skills/tarot-response.md` | 반복 답변 구조를 문서화한 업무 절차 |
-| Agent | `agents/tarot_agent.py` | 주문을 읽고 답변 초안을 생성 |
+| Skill | `skills/tarot-response.md` | 반복 업무 절차를 문서화한 예시 파일 |
+| Agent | `agents/tarot_agent.py` | 입력 목표를 읽고 초안을 생성하는 예시 Agent |
 | Backend | `backend/db.py`, `backend/schema.sql` | SQLite 연결, 테이블, 실행 로그 |
 | Approval Queue | `approval_queue/app.py` | 초안을 승인, 반려하는 Streamlit UI |
 | Conductor | `conductor/daily_briefing.py` | 운영 상태와 최근 로그를 브리핑 |
@@ -67,21 +68,21 @@ docs/STAGE_GUIDE.md의 해당 단계 확인 명령을 실행해라.
 
 - 프롬프트: `prompts/02-context-pack.md`
 - 산출물: `CLAUDE.md`, `context/business-overview.md`, `context/tone-examples.md`
-- 알아야 할 것: 파인튜닝 전에 먼저 사업 기준과 좋은 예시를 Markdown으로 고정합니다.
+- 알아야 할 것: 파인튜닝 전에 먼저 사용자 업무 목표와 기존 자료를 Markdown으로 고정합니다.
 - 확인 명령: `sed -n '1,120p' CLAUDE.md`
 
-### Step 3. 타로 답변 Skill
+### Step 3. 반복 업무 절차 Skill
 
 - 프롬프트: `prompts/03-tarot-skill.md`
 - 산출물: `skills/tarot-response.md`
-- 알아야 할 것: Skill은 반복 프롬프트가 아니라 재사용 가능한 업무 절차입니다.
+- 알아야 할 것: Skill은 반복 프롬프트가 아니라 재사용 가능한 업무 절차입니다. 현재 파일명은 예제 유산이고, 내용은 사용자 목표에 맞게 바꿔 읽습니다.
 - 확인 명령: `sed -n '1,160p' skills/tarot-response.md`
 
 ### Step 4. 단일 Agent
 
 - 프롬프트: `prompts/04-single-agent.md`
 - 산출물: `backend/db.py`, `backend/schema.sql`, `backend/seed_order.py`, `agents/tarot_agent.py`
-- 알아야 할 것: Agent는 입력을 읽고, Skill 규칙을 적용하고, 결과를 DB에 남깁니다.
+- 알아야 할 것: Agent는 입력 목표를 읽고, Skill 규칙을 적용하고, 결과를 DB에 남깁니다.
 - 확인 명령:
 
 ```bash
@@ -121,4 +122,4 @@ python conductor/daily_briefing.py
 git log --oneline --reverse
 ```
 
-성공 기준은 승인 대기 draft 1건과 최근 실행 로그가 브리핑에 표시되는 것입니다.
+성공 기준은 사용자 목표에 대한 draft 1건과 최근 실행 로그가 브리핑에 표시되는 것입니다.

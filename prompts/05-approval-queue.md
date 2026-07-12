@@ -1,6 +1,6 @@
 # Step 5 Prompt: 승인 큐 구현
 
-외부 발신물을 바로 보내지 않고 승인 대기 상태로 모으는 UI와 상태 변경 로직을 만들어라.
+외부 발신물 또는 실행 전 초안을 바로 보내지 않고 승인 대기 상태로 모으는 UI와 상태 변경 로직을 만들어라.
 
 ## 작성 파일
 
@@ -19,4 +19,3 @@
 git add .
 git commit -m "step 5: add approval queue backend"
 ```
-
