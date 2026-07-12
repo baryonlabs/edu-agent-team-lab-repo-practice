@@ -1,10 +1,10 @@
 # Step 3 Prompt: 반복 업무 절차 Skill 작성
 
-반복 프롬프트를 재사용 가능한 Skill 문서로 고정해라. 이 Skill은 타로가 아니라 사용자가 입력한 업무 목표를 수행하는 절차를 설명해야 한다.
+반복 프롬프트를 재사용 가능한 Skill 문서로 고정해라. 이 Skill은 특정 예시 도메인에 묶이지 않고 사용자가 입력한 업무 목표를 수행하는 절차를 설명해야 한다.
 
 ## 작성 파일
 
-- `skills/tarot-response.md`
+- `skills/response-pattern.md`
 
 ## 포함할 내용
 

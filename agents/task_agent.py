@@ -41,11 +41,10 @@ def main() -> None:
             "insert into approvals(draft_id, status, reviewer_note) values (?, 'pending', '')",
             (cur.lastrowid,),
         )
-        log_event(con, "tarot_agent.draft_created", f"draft_id={cur.lastrowid}")
+        log_event(con, "task_agent.draft_created", f"draft_id={cur.lastrowid}")
         con.commit()
         print(f"Created draft #{cur.lastrowid} for {order['customer_name']}")
 
 
 if __name__ == "__main__":
     main()
-

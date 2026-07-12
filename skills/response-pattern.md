@@ -1,4 +1,4 @@
-# Tarot Response Skill
+# Response Pattern Skill
 
 ## 입력 형식
 
@@ -37,4 +37,3 @@
 ## 피해야 할 예시
 
 상대는 반드시 돌아옵니다. 오늘 바로 연락하세요.
-

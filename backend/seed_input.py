@@ -14,11 +14,10 @@ def main() -> None:
             "insert into orders(customer_name, question, cards) values (?, ?, ?)",
             ("sample-customer", "연락이 끊긴 상대에게 먼저 연락해도 될까요?", "Two of Cups, Four of Swords, Page of Cups"),
         )
-        log_event(con, "seed.order_created", "sample tarot order")
+        log_event(con, "seed.input_created", "sample task input")
         con.commit()
     print("Seeded one sample order.")
 
 
 if __name__ == "__main__":
     main()
-

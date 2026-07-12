@@ -6,13 +6,13 @@
 
 - `backend/db.py`
 - `backend/schema.sql`
-- `backend/seed_order.py`
-- `agents/tarot_agent.py`
+- `backend/seed_input.py`
+- `agents/task_agent.py`
 
 ## 완료 조건
 
-- `python backend/seed_order.py`로 샘플 목표를 넣을 수 있다.
-- `python agents/tarot_agent.py`로 승인 대기 초안이 생성된다.
+- `python backend/seed_input.py`로 샘플 목표를 넣을 수 있다.
+- `python agents/task_agent.py`로 승인 대기 초안이 생성된다.
 - 실제 LLM 호출 전이라도 Skill 규칙을 흉내 내는 deterministic draft가 생성되어야 한다.
 
 ## 단계 종료 커밋

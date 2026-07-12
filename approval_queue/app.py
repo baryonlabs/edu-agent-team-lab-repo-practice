@@ -36,7 +36,7 @@ def main() -> None:
         ).fetchall()
 
     if not drafts:
-        st.info("No drafts yet. Run `python backend/seed_order.py` and `python agents/tarot_agent.py`.")
+        st.info("No drafts yet. Run `python backend/seed_input.py` and `python agents/task_agent.py`.")
         return
 
     for draft in drafts:
@@ -55,4 +55,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
