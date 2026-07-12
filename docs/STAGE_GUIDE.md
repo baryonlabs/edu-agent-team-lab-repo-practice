@@ -2,6 +2,18 @@
 
 이 문서는 슬라이드의 실습 단계와 실제 코드가 1:1로 맞도록 정리한 운영 가이드입니다.
 
+GitHub 공개 링크: https://github.com/baryonlabs/edu-agent-team-lab-repo-practice
+
+## 시작 프롬프트
+
+```text
+GitHub에서 실습 repo를 내려받아 시작한다.
+repo 주소는 https://github.com/baryonlabs/edu-agent-team-lab-repo-practice 이다.
+README.md와 docs/STAGE_GUIDE.md를 읽고,
+prompts/01-repo-skeleton.md부터 prompts/06-conductor-logging.md까지 순서대로 진행한다.
+각 단계가 끝나면 확인 명령을 실행하고, 지정된 커밋 메시지로 commit한다.
+```
+
 ## 전체 코드 지도
 
 | 영역 | 파일 | 역할 |
@@ -82,4 +94,3 @@ git log --oneline --reverse
 ```
 
 성공 기준은 승인 대기 draft 1건과 최근 실행 로그가 브리핑에 표시되는 것입니다.
-

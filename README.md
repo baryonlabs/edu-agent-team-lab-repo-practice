@@ -2,6 +2,28 @@
 
 이 저장소는 교육 중 수강자가 빈 폴더에서 Agent Team 운영 골격까지 직접 조립하는 실습 repo입니다.
 
+GitHub 공개 링크: https://github.com/baryonlabs/edu-agent-team-lab-repo-practice
+
+## 시작하기
+
+처음에는 repo를 내려받고, 프롬프트를 하나씩 실행하면서 커밋으로 진도를 남깁니다.
+
+```bash
+git clone https://github.com/baryonlabs/edu-agent-team-lab-repo-practice.git
+cd edu-agent-team-lab-repo-practice
+git log --oneline --reverse
+```
+
+프롬프트로 시작할 때는 Claude Code에 이렇게 요청합니다.
+
+```text
+이 repo를 실습 교재로 사용한다.
+README.md와 docs/STAGE_GUIDE.md를 먼저 읽고,
+prompts/01-repo-skeleton.md부터 단계별로 실행해라.
+각 단계가 끝나면 실행 확인 명령을 돌리고,
+지정된 커밋 메시지로 git commit까지 남겨라.
+```
+
 ## 학습 방식
 
 각 단계는 `prompts/`의 프롬프트를 Claude Code에 붙여 넣어 완성합니다. 단계가 끝나면 반드시 테스트하고 커밋합니다.
