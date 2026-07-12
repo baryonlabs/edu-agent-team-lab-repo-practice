@@ -166,7 +166,7 @@ python conductor/daily_briefing.py
 - `prompts/`: 단계별로 Claude Code에 넣는 프롬프트
 - `context/`와 `CLAUDE.md`: Agent가 참고하는 사업 기준
 - `skills/response-pattern.md`: 반복 업무 절차의 예시 파일
-- `backend/`: SQLite 스키마와 연결 함수
+- `backend/`: SQLite 스키마와 연결 함수. 이 폴더명은 예시이며, 실제 구현체에 따라 `application/`, `mobile_app/`, `service/`처럼 바뀔 수 있다.
 - `agents/task_agent.py`: 입력 목표를 초안으로 바꾸는 단일 Agent 예시
 - `approval_queue/app.py`: 사람이 승인/반려하는 화면
 - `conductor/daily_briefing.py`: 운영 상태 브리핑
@@ -197,7 +197,7 @@ Step 5-2의 요청 폼은 이 구조를 더 앞단까지 확장합니다. 사용
 4. 승인 큐를 붙여 외부 발신을 관리한다.
 5. 로그를 남겨 다음 작업의 기준으로 재사용한다.
 6. 업무별 모델을 나눈다. 예: 기획은 큰 모델, 정리와 검증은 작은 모델
-7. 새로운 업무를 추가할 때는 먼저 폴더, 프롬프트, 데이터 흐름부터 정리한다.
+7. 새로운 업무를 추가할 때는 먼저 폴더, 프롬프트, 데이터 흐름부터 정리한다. 구현체가 바뀌면 `backend/` 같은 폴더명도 그 역할에 맞게 바꾼다.
 
 ## 검수 기준
 

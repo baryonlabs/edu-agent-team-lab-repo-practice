@@ -65,7 +65,7 @@ docs/STAGE_GUIDE.md의 해당 단계 확인 명령을 실행해라.
 | 컨텍스트 | `CLAUDE.md`, `context/*.md` | Agent가 따라야 할 사업 기준과 문체 |
 | Skill | `skills/response-pattern.md` | 반복 업무 절차를 문서화한 예시 파일 |
 | Agent | `agents/task_agent.py` | 입력 목표를 읽고 초안을 생성하는 예시 Agent |
-| Backend | `backend/db.py`, `backend/schema.sql` | SQLite 연결, 테이블, 실행 로그 |
+| Backend | `backend/db.py`, `backend/schema.sql` | SQLite 연결, 테이블, 실행 로그. 구현체에 따라 `application/`, `mobile_app/`, `service/` 등으로 폴더명이 바뀔 수 있다. |
 | Approval Queue | `approval_queue/app.py` | 초안을 승인, 반려하는 Streamlit UI |
 | Request Form | `approval_queue/app.py` | 사용자가 추가 요청을 남기는 폼 |
 | Conductor | `conductor/daily_briefing.py` | 운영 상태와 최근 로그를 브리핑 |
@@ -77,6 +77,7 @@ docs/STAGE_GUIDE.md의 해당 단계 확인 명령을 실행해라.
 - 프롬프트: `prompts/01-repo-skeleton.md`
 - 산출물: `agents/`, `context/`, `skills/`, `backend/`, `approval_queue/`, `conductor/`
 - 알아야 할 것: 폴더는 기능 경계입니다. 나중에 Agent가 늘어나도 역할별 위치가 흔들리지 않아야 합니다.
+- 알아야 할 것: `backend/`는 예시 이름이다. 실제 제품에서는 `application/`, `mobile_app/`, `service/`처럼 구현체 역할에 맞춰 이름을 바꿀 수 있다.
 - 확인 명령: `find . -maxdepth 2 -type d | sort`
 
 ### Step 2. 컨텍스트 팩
