@@ -14,14 +14,42 @@ cd edu-agent-team-lab-repo-practice
 git log --oneline --reverse
 ```
 
-프롬프트로 시작할 때는 Claude Code에 이렇게 요청합니다.
+프롬프트는 한 번에 1~6단계를 모두 시키지 말고, 아래처럼 단계별로 끊어서 실행합니다.
+
+### 시작 프롬프트 0. repo 내려받기
 
 ```text
-이 repo를 실습 교재로 사용한다.
-README.md와 docs/STAGE_GUIDE.md를 먼저 읽고,
-prompts/01-repo-skeleton.md부터 단계별로 실행해라.
-각 단계가 끝나면 실행 확인 명령을 돌리고,
-지정된 커밋 메시지로 git commit까지 남겨라.
+GitHub에서 실습 repo를 내려받아 시작해라.
+repo 주소는 https://github.com/baryonlabs/edu-agent-team-lab-repo-practice 이다.
+내려받은 뒤 repo 루트로 이동하고 git log --oneline --reverse로 단계 커밋을 확인해라.
+아직 파일을 수정하지 말고 현재 구조만 설명해라.
+```
+
+### 시작 프롬프트 1. 문서 읽고 작업 순서 잡기
+
+```text
+README.md와 docs/STAGE_GUIDE.md를 읽어라.
+이 실습이 어떤 흐름으로 진행되는지 6단계로 요약하고,
+각 단계에서 어떤 파일을 수정하거나 확인하는지 표로 정리해라.
+아직 코드는 수정하지 마라.
+```
+
+### 시작 프롬프트 2. 1단계만 실행하기
+
+```text
+prompts/01-repo-skeleton.md만 읽고 실행해라.
+완료 후 find . -maxdepth 2 -type d | sort로 확인하고,
+문제가 없으면 git commit -m "step 1: create repo skeleton"으로 커밋해라.
+다음 단계는 내가 지시할 때까지 진행하지 마라.
+```
+
+### 이후 반복 프롬프트
+
+```text
+prompts/0N-<step-name>.md만 읽고 실행해라.
+docs/STAGE_GUIDE.md의 해당 단계 확인 명령을 실행해라.
+문제가 없으면 README.md의 지정된 커밋 메시지로 commit해라.
+다음 단계는 내가 지시할 때까지 진행하지 마라.
 ```
 
 ## 학습 방식
