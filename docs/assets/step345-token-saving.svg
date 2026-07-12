@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
   <title id="title">3, 4, 5 단계는 일회용 코드 생성 토큰을 줄입니다</title>
-  <desc id="desc">프롬프트만 반복하는 방식과 Skill, Agent, 승인 큐, 요청 폼으로 고정하는 방식을 비교한 도식</desc>
+  <desc id="desc">프롬프트만 반복하는 방식과 Skill, Agent, 승인 큐, 요청 폼, 모델 분리로 고정하는 방식을 비교한 도식</desc>
   <defs>
     <style>
       .bg { fill: #f7f8fb; }
@@ -25,7 +25,7 @@
 
   <rect class="bg" x="0" y="0" width="1200" height="720" />
   <text class="header" x="60" y="64">3, 4, 5 단계는 일회용 코드 생성 토큰을 줄입니다</text>
-  <text class="sub" x="60" y="100">같은 일을 매번 새 프롬프트로 다시 만들지 않고, 반복 구조를 코드와 화면으로 고정합니다.</text>
+  <text class="sub" x="60" y="100">같은 일을 매번 새 프롬프트로 다시 만들지 않고, 반복 구조와 모델 선택을 고정합니다.</text>
 
   <rect class="panel warm" x="60" y="150" width="300" height="470" rx="18" />
   <text class="label" x="90" y="198">프롬프트만 반복</text>
@@ -62,5 +62,6 @@
 
   <rect class="panel" x="460" y="540" width="680" height="110" rx="18" />
   <text class="label" x="490" y="588">결과</text>
-  <text class="body" x="490" y="624">반복되는 설명은 Skill과 Agent로 고정되고, 발신 전 검수와 입력 수집은 화면과 테이블로 분리됩니다. 다시 쓸 프롬프트가 줄어듭니다.</text>
+  <text class="body" x="490" y="620">반복되는 설명은 Skill과 Agent로 고정되고, 발신 전 검수와 입력 수집은 화면과 테이블로 분리됩니다.</text>
+  <text class="body" x="490" y="646">업무별 모델 분리까지 더하면 기획은 고성능 모델, 단순 작업은 작은 모델로 처리해 호출 비용을 더 줄입니다.</text>
 </svg>
