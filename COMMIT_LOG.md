@@ -4,10 +4,15 @@
 
 | 단계 | 커밋 메시지 | 커밋 해시 |
 |---|---|---|
-| 1 | `step 1: create repo skeleton` | 기록 예정 |
-| 2 | `step 2: add business context pack` | 기록 예정 |
-| 3 | `step 3: add tarot response skill` | 기록 예정 |
-| 4 | `step 4: implement tarot draft agent` | 기록 예정 |
-| 5 | `step 5: add approval queue backend` | 기록 예정 |
-| 6 | `step 6: add conductor briefing loop` | 기록 예정 |
+| 1 | `step 1: create repo skeleton` | `eea5fa4` |
+| 2 | `step 2: add business context pack` | `5527891` |
+| 3 | `step 3: add tarot response skill` | `efdb2f5` |
+| 4 | `step 4: implement tarot draft agent` | `d7d2787` |
+| 5 | `step 5: add approval queue backend` | `e4d8859` |
+| 6 | `step 6: add conductor briefing loop` | `e0abc52` |
 
+## 확인 명령
+
+```bash
+git log --oneline --reverse
+```
