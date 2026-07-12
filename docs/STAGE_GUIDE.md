@@ -7,7 +7,7 @@ GitHub 공개 링크: https://github.com/baryonlabs/edu-agent-team-lab-repo-prac
 
 ## 시작 프롬프트
 
-사용자가 자신의 목표를 넣는 영역은 `----` 사이에 둔다.
+사용자가 자신의 목표를 넣는 영역은 `----` 사이에 둔다. 추가 요청이 있으면 Step 5-2에서 이 영역을 확장한다.
 
 ### 0. repo 내려받기
 
@@ -67,6 +67,7 @@ docs/STAGE_GUIDE.md의 해당 단계 확인 명령을 실행해라.
 | Agent | `agents/task_agent.py` | 입력 목표를 읽고 초안을 생성하는 예시 Agent |
 | Backend | `backend/db.py`, `backend/schema.sql` | SQLite 연결, 테이블, 실행 로그 |
 | Approval Queue | `approval_queue/app.py` | 초안을 승인, 반려하는 Streamlit UI |
+| Request Form | `approval_queue/app.py` | 사용자가 추가 요청을 남기는 폼 |
 | Conductor | `conductor/daily_briefing.py` | 운영 상태와 최근 로그를 브리핑 |
 
 ## 단계별 설명
@@ -109,6 +110,17 @@ python agents/task_agent.py
 - 프롬프트: `prompts/05-approval-queue.md`
 - 산출물: `approval_queue/app.py`
 - 알아야 할 것: 외부 발신 전에는 사람이 확인하는 큐가 있어야 합니다.
+- 확인 명령:
+
+```bash
+streamlit run approval_queue/app.py
+```
+
+### Step 5-2. 추가 요청 폼
+
+- 프롬프트: `prompts/05-2-request-form.md`
+- 산출물: `approval_queue/app.py`, `backend/schema.sql`
+- 알아야 할 것: 사용자는 자신의 목표, 기존 자료, 제약 조건을 먼저 입력해야 합니다.
 - 확인 명령:
 
 ```bash

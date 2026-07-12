@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">3, 4, 5 단계는 일회용 코드 생성 토큰을 줄입니다</title>
+  <desc id="desc">프롬프트만 반복하는 방식과 Skill, Agent, 승인 큐, 요청 폼으로 고정하는 방식을 비교한 도식</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f8fb; }
+      .panel { fill: #ffffff; stroke: #d7dce5; stroke-width: 2; rx: 18; }
+      .header { font: 700 30px sans-serif; fill: #17324d; }
+      .sub { font: 500 18px sans-serif; fill: #52627a; }
+      .label { font: 700 22px sans-serif; fill: #17324d; }
+      .body { font: 500 18px sans-serif; fill: #334155; }
+      .small { font: 500 16px sans-serif; fill: #475569; }
+      .token { font: 700 28px sans-serif; fill: #0f172a; }
+      .arrow { stroke: #5b6b84; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .dashed { stroke-dasharray: 12 10; }
+      .warm { fill: #fff1e8; stroke: #f0c2a7; }
+      .cool { fill: #e9f4f5; stroke: #b6d7db; }
+      .soft { fill: #eef2ff; stroke: #c4c9f5; }
+      .accent { fill: #e6f7ef; stroke: #badfcd; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#5b6b84" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="720" />
+  <text class="header" x="60" y="64">3, 4, 5 단계는 일회용 코드 생성 토큰을 줄입니다</text>
+  <text class="sub" x="60" y="100">같은 일을 매번 새 프롬프트로 다시 만들지 않고, 반복 구조를 코드와 화면으로 고정합니다.</text>
+
+  <rect class="panel warm" x="60" y="150" width="300" height="470" rx="18" />
+  <text class="label" x="90" y="198">프롬프트만 반복</text>
+  <text class="body" x="90" y="240">매번 긴 지시문 작성</text>
+  <text class="body" x="90" y="276">일회용 코드 재생성</text>
+  <text class="body" x="90" y="312">검수와 입력 구조가 분리되지 않음</text>
+  <text class="token" x="90" y="388">토큰 사용량 높음</text>
+  <text class="small" x="90" y="432">같은 설명을 매번 다시 쓰게 됩니다.</text>
+  <text class="small" x="90" y="470">수정할 때도 전체 프롬프트를 다시 읽어야 합니다.</text>
+
+  <path class="arrow" d="M380 370 L460 370" />
+  <path class="arrow dashed" d="M380 460 L460 460" />
+
+  <rect class="panel cool" x="460" y="150" width="280" height="130" rx="18" />
+  <text class="label" x="490" y="198">Step 3</text>
+  <text class="body" x="490" y="236">반복 절차를 Skill로 고정</text>
+
+  <rect class="panel soft" x="760" y="150" width="380" height="130" rx="18" />
+  <text class="label" x="790" y="198">Step 4</text>
+  <text class="body" x="790" y="236">입력 목표를 읽는 단일 Agent</text>
+
+  <rect class="panel accent" x="460" y="320" width="280" height="130" rx="18" />
+  <text class="label" x="490" y="368">Step 5</text>
+  <text class="body" x="490" y="406">승인 큐로 검수 구조 고정</text>
+
+  <rect class="panel" x="760" y="320" width="380" height="130" rx="18" />
+  <text class="label" x="790" y="368">Step 5-2</text>
+  <text class="body" x="790" y="406">추가 요청 폼으로 입력 표준화</text>
+
+  <path class="arrow" d="M600 280 L600 320" />
+  <path class="arrow" d="M880 280 L880 320" />
+  <path class="arrow" d="M600 450 L600 540" />
+  <path class="arrow" d="M880 450 L880 540" />
+
+  <rect class="panel" x="460" y="540" width="680" height="110" rx="18" />
+  <text class="label" x="490" y="588">결과</text>
+  <text class="body" x="490" y="624">반복되는 설명은 Skill과 Agent로 고정되고, 발신 전 검수와 입력 수집은 화면과 테이블로 분리됩니다. 다시 쓸 프롬프트가 줄어듭니다.</text>
+</svg>

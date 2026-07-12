@@ -7,43 +7,54 @@ sys.path.append(str(ROOT))
 from backend.db import connect, init_db, log_event
 
 
-def build_draft(question: str, cards: str) -> str:
-    return f"""카드 해석
-{cards} 흐름은 지금 결론을 서두르기보다 상황을 차분히 확인해야 한다는 쪽에 가깝습니다.
+def build_draft(title: str, goal: str, context: str, constraints: str) -> str:
+    return f"""입력 요약
+제목: {title}
+목표: {goal}
+배경: {context}
+제약: {constraints}
 
-종합 흐름
-질문은 "{question}"입니다. 현재는 상대나 환경의 반응을 관찰하면서 선택지를 좁히는 단계입니다.
+작업 흐름
+1. 입력 목표를 한 문장으로 다시 쓴다.
+2. 기존 자료와 제약 조건을 기준으로 실행 순서를 정한다.
+3. 바로 만들 수 있는 것과 나중에 붙일 것을 나눈다.
 
-현실 조언
-오늘 할 일은 하나입니다. 감정이 올라온 상태에서 긴 메시지를 보내기보다, 확인해야 할 사실을 한 문장으로 정리하세요.
+실행 조언
+작게 시작하고, 한 단계가 끝날 때마다 검증한다.
 
 확인 질문
-지금 가장 확인하고 싶은 것은 상대의 마음인가요, 아니면 내가 다음 행동을 해도 되는 타이밍인가요?"""
+이 목표를 먼저 자동화할지, 먼저 승인 큐를 붙일지, 아니면 먼저 문서 정리를 할지 정해 주세요."""
 
 
 def main() -> None:
     init_db()
     with connect() as con:
-        order = con.execute(
-            "select id, customer_name, question, cards from orders where status = 'new' order by id limit 1"
+        request = con.execute(
+            """
+            select id, title, goal, context, constraints
+            from intake_requests
+            where status = 'new'
+            order by id
+            limit 1
+            """
         ).fetchone()
-        if not order:
-            print("No new orders.")
+        if not request:
+            print("No new requests.")
             return
 
-        draft = build_draft(order["question"], order["cards"])
+        draft = build_draft(request["title"], request["goal"], request["context"], request["constraints"])
         cur = con.execute(
-            "insert into drafts(order_id, body, status) values (?, ?, 'pending')",
-            (order["id"], draft),
+            "insert into drafts(request_id, body, status) values (?, ?, 'pending')",
+            (request["id"], draft),
         )
-        con.execute("update orders set status = 'drafted' where id = ?", (order["id"],))
+        con.execute("update intake_requests set status = 'drafted' where id = ?", (request["id"],))
         con.execute(
             "insert into approvals(draft_id, status, reviewer_note) values (?, 'pending', '')",
             (cur.lastrowid,),
         )
         log_event(con, "task_agent.draft_created", f"draft_id={cur.lastrowid}")
         con.commit()
-        print(f"Created draft #{cur.lastrowid} for {order['customer_name']}")
+        print(f"Created draft #{cur.lastrowid} for {request['title']}")
 
 
 if __name__ == "__main__":

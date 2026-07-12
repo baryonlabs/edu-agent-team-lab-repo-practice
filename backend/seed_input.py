@@ -11,12 +11,20 @@ def main() -> None:
     init_db()
     with connect() as con:
         con.execute(
-            "insert into orders(customer_name, question, cards) values (?, ?, ?)",
-            ("sample-customer", "연락이 끊긴 상대에게 먼저 연락해도 될까요?", "Two of Cups, Four of Swords, Page of Cups"),
+            """
+            insert into intake_requests(title, goal, context, constraints, status)
+            values (?, ?, ?, ?, 'new')
+            """,
+            (
+                "샘플 업무 요청",
+                "사용자가 추가로 입력한 업무 목표를 Agent Team으로 실행해 보기",
+                "기존 문서와 프롬프트를 재사용하는 예시",
+                "짧은 범위에서 시작하고 단계별로 검증할 것",
+            ),
         )
         log_event(con, "seed.input_created", "sample task input")
         con.commit()
-    print("Seeded one sample order.")
+    print("Seeded one sample request.")
 
 
 if __name__ == "__main__":
