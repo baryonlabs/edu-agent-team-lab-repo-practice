@@ -48,6 +48,7 @@ python conductor/daily_briefing.py
 
 슬라이드의 단계별 설명과 실제 코드는 [docs/STAGE_GUIDE.md](docs/STAGE_GUIDE.md)에 1:1로 정리되어 있습니다.
 
+- 교재 PDF: [docs/curriculum/ai-native-agent-curriculum.pdf](docs/curriculum/ai-native-agent-curriculum.pdf)
 - `prompts/`: 단계별로 Claude Code에 넣는 프롬프트
 - `context/`와 `CLAUDE.md`: Agent가 참고하는 사업 기준
 - `skills/tarot-response.md`: 반복 업무 절차
